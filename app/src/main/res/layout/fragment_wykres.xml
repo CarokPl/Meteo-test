@@ -22,7 +22,7 @@
         android:id="@+id/wykres_vw"
         android:layout_centerInParent="true" />
 
-    <LinearLayout
+    <RelativeLayout
         android:background="@color/myPrimaryColor"
         android:layout_alignParentBottom="true"
         android:layout_width="fill_parent"
@@ -30,21 +30,26 @@
         android:paddingLeft="10dp"
         android:layout_height="50dp">
             <TextView
+                android:background="#ff4e61ca"
+                android:id="@+id/date_from_et"
+                android:padding="10dp"
                 android:textSize="18sp"
                 android:textColor="#fff"
-                android:layout_gravity="center_vertical"
+                android:layout_centerVertical="true"
                 android:text="10 Stycznia 2014r."
-                android:layout_weight="1"
-                android:layout_width="fill_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <TextView
+                android:id="@+id/date_to_et"
+                android:background="#ff4e61ca"
+                android:padding="10dp"
                 android:textSize="18sp"
                 android:textColor="#fff"
-                android:gravity="right"
-                android:layout_gravity="center_vertical"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
                 android:text="10 Luty 2014r."
-                android:layout_weight="1"
-                android:layout_width="fill_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
-        </LinearLayout>
+        </RelativeLayout>
 </RelativeLayout>
