@@ -1,0 +1,14 @@
+<resources>
+
+
+    <color name="myPrimaryColor">#428bca</color>
+    <color name="myPrimaryDarkColor">#428bca</color>
+    <color name="myAccentColor">#3F51B5</color>
+    <color name="myDrawerBackground">#F2F2F2</color>
+    <color name="myWindowBackground">#ffffff</color>
+    <color name="myTextPrimaryColor">#FFFFFF</color>
+    <color name="myNavigationColor">#000000</color>
+
+    <color name="line">#ffb4b4ff</color>
+    <color name="selected_gray">#ffdbdbdb</color>
+</resources>

@@ -1,0 +1,50 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    tools:context="pl.torun.zsmeie.meteozsmeie.fragmenty.WykresFragment">
+
+    <ProgressBar
+        android:visibility="gone"
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleInverse"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <WebView
+        android:visibility="invisible"
+        android:background="@color/myPrimaryColor"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/wykres_vw"
+        android:layout_centerInParent="true" />
+
+    <LinearLayout
+        android:background="@color/myPrimaryColor"
+        android:layout_alignParentBottom="true"
+        android:layout_width="fill_parent"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:layout_height="50dp">
+            <TextView
+                android:textSize="18sp"
+                android:textColor="#fff"
+                android:layout_gravity="center_vertical"
+                android:text="10 Stycznia 2014r."
+                android:layout_weight="1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textSize="18sp"
+                android:textColor="#fff"
+                android:gravity="right"
+                android:layout_gravity="center_vertical"
+                android:text="10 Luty 2014r."
+                android:layout_weight="1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+</RelativeLayout>

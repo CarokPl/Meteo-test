@@ -1,0 +1,107 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context="pl.torun.zsmeie.meteozsmeie.AktualnyPomiarFragment">
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:visibility="gone"
+        android:layout_alignParentTop="true"
+        style="@android:style/Widget.Holo.ProgressBar.Horizontal"
+        android:indeterminate="true"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <ScrollView
+        android:layout_marginTop="15dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:visibility="gone"
+                android:textColor="#ffff342c"
+                android:gravity="center"
+                android:padding="5dp"
+                android:id="@+id/error_tv"
+                android:text="Błąd pobierania danych."
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="Temperatura:"
+                    style="@style/aktualnePomiaryLewy"/>
+                <TextView
+                    android:id="@+id/temperatura"
+                    style="@style/aktualnePomiaryPrawy"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="Wilgotność:"
+                    style="@style/aktualnePomiaryLewy"/>
+                <TextView
+                    android:id="@+id/wilgotnosc"
+                    style="@style/aktualnePomiaryPrawy"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="Ciśnienie:"
+                    style="@style/aktualnePomiaryLewy"/>
+                <TextView
+                    android:id="@+id/cisnienie"
+                    style="@style/aktualnePomiaryPrawy"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="Prędkość wiatru:"
+                    style="@style/aktualnePomiaryLewy"/>
+                <TextView
+                    android:id="@+id/predkoscWiatru"
+                    style="@style/aktualnePomiaryPrawy"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="Kierunek wiatru:"
+                    style="@style/aktualnePomiaryLewy"/>
+                <TextView
+                    android:id="@+id/kierunekWiatru"
+                    style="@style/aktualnePomiaryPrawy"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="Data:"
+                    style="@style/aktualnePomiaryLewy"/>
+                <TextView
+                    android:textSize="13sp"
+                    android:id="@+id/data"
+                    style="@style/aktualnePomiaryPrawy"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

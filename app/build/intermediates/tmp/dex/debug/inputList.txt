@@ -1,0 +1,7 @@
+C:\Users\Oskar\AndroidStudioProjects\MeteoZSMEiE\app\build\intermediates\classes\debug
+C:\Users\Oskar\AndroidStudioProjects\MeteoZSMEiE\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-3c2c62e52eb892c680a71907e5caa0cc2c47f6d3.jar
+C:\Users\Oskar\AndroidStudioProjects\MeteoZSMEiE\app\build\intermediates\pre-dexed\debug\classes-b5c5cc1018ce530c300f8ce57dae2d03300ad7c5.jar
+C:\Users\Oskar\AndroidStudioProjects\MeteoZSMEiE\app\build\intermediates\pre-dexed\debug\http-request-6.0-20a72bde452fab32109db7ca26b093f8a4558b94.jar
+C:\Users\Oskar\AndroidStudioProjects\MeteoZSMEiE\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-bebcec2a4149069adab01e9088eb0518b0db36fb.jar
+C:\Users\Oskar\AndroidStudioProjects\MeteoZSMEiE\app\build\intermediates\pre-dexed\debug\classes-fc0ff5101dd820072d247115d2e2f0258644fb76.jar
+C:\Users\Oskar\AndroidStudioProjects\MeteoZSMEiE\app\build\intermediates\pre-dexed\debug\classes-c349ef1311cde928e51ff948119a2879dfda8e31.jar

@@ -1,0 +1,56 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="pl.torun.zsmeie.meteozsmeie.WykresyFragment">
+
+
+
+    <LinearLayout
+        android:background="@color/myPrimaryColor"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <ImageView
+            android:id="@+id/prev_btn"
+            android:layout_margin="10dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/arrow_left_white" />
+
+        <TextView
+            android:background="@color/line"
+            android:layout_height="fill_parent"
+            android:layout_width="0.5dp"/>
+
+        <TextView
+            android:id="@+id/chart_name_tv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Wszystkie"
+            android:textColor="#fff"
+            android:textSize="18dp" />
+
+        <TextView
+            android:background="@color/line"
+            android:layout_height="fill_parent"
+            android:layout_width="0.5dp"/>
+
+        <ImageView
+            android:id="@+id/next_btn"
+            android:layout_margin="10dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/arrow_right_white" />
+    </LinearLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/wykresy_vp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+</LinearLayout>

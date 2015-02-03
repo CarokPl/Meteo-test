@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:padding="10dp"
+        android:background="#ddd"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_weight="1"
+            android:text="20 *C"
+            android:textStyle="bold"
+            android:id="@+id/temperatura_tv"
+            android:textSize="20sp"
+            android:textColor="#111"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_weight="1"
+            android:text="32 %"
+            android:textSize="20sp"
+            android:textColor="#111"
+            android:id="@+id/wilgotnosc_tv"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_weight="1"
+            android:text="1006 Hpa"
+            android:id="@+id/cisnienie_tv"
+            android:textSize="20sp"
+            android:textColor="#111"
+            android:gravity="right"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:background="@color/myPrimaryColor"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp">
+
+        <TextView
+            android:text="Połudnowy-Wschód"
+            android:id="@+id/kierunekWiatru_tv"
+            android:layout_gravity="center_vertical"
+            android:textColor="#fff"
+            android:textSize="15sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:textIsSelectable="true"
+            android:text="34 km/h"
+            android:id="@+id/predkoscWiatru_tv"
+            android:layout_gravity="center_vertical"
+            android:gravity="right"
+            android:textColor="#fff"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="20.12.2015r."
+                android:id="@+id/data_tv"
+                android:textColor="#fff"
+                android:textSize="12sp"
+                android:gravity="right"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:text="12:20:43"
+                android:id="@+id/godzina_tv"
+                android:textColor="#fff"
+                android:textSize="12sp"
+                android:gravity="right"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+</LinearLayout>

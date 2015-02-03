@@ -1,0 +1,135 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="pl.torun.zsmeie.meteozsmeie.SearchActivity">
+
+    <include
+        android:id="@+id/toolbar_actionbar"
+        layout="@layout/toolbar_default"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ScrollView
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="Dzień:"
+                    style="@style/aktualnePomiaryLewy" />
+
+                <!--  <EditText
+                      android:id="@+id/dzien_edit_text"
+                      style="@style/aktualnePomiaryPrawy"
+                      android:inputType="number"
+                      android:text=""/>-->
+                <LinearLayout
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <EditText
+
+                    android:id="@+id/day_et"
+                    style="@style/aktualnePomiaryPrawy"
+                    android:inputType="number"
+                    android:text="" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="Miesiąc:"
+                    style="@style/aktualnePomiaryLewy" />
+
+                <Spinner
+                    android:entries="@array/month_array"
+                    android:prompt="@string/wybierz"
+                    android:id="@+id/month_sp"
+                    style="@style/aktualnePomiaryPrawy" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="Rok:"
+                    style="@style/aktualnePomiaryLewy" />
+
+                <EditText
+                    android:visibility="gone"
+                    android:id="@+id/year_et"
+                    style="@style/aktualnePomiaryPrawy"
+                    android:inputType="number"
+                    android:text="" />
+
+                <Spinner
+                    android:entries="@array/year_array"
+                    android:prompt="@string/wybierz"
+                    android:id="@+id/year_sp"
+                    style="@style/aktualnePomiaryPrawy" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="Godzina:"
+                    style="@style/aktualnePomiaryLewy" />
+
+                <EditText
+                    android:id="@+id/hour_et"
+                    style="@style/aktualnePomiaryPrawy"
+                    android:inputType="number"
+                    android:text="" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="Minuta:"
+                    style="@style/aktualnePomiaryLewy" />
+
+                <EditText
+                    android:id="@+id/minute_et"
+                    style="@style/aktualnePomiaryPrawy"
+                    android:inputType="number"
+                    android:text="" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/search_btn"
+                android:layout_marginTop="20dp"
+                android:text="Wyszukaj"
+                android:textSize="20dp"
+                android:textColor="#fff"
+                android:background="@color/myPrimaryColor"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
