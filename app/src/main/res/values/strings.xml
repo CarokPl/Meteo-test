@@ -52,5 +52,12 @@
         <item>1 miesiąc</item>
     </string-array>
 
+    <string-array name="measurement_count_array">
+        <item>10 pomiarów</item>
+        <item>30 pomiarów</item>
+        <item>50 pomiarów</item>
+    </string-array>
+
+
 </resources>
 

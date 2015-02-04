@@ -5,13 +5,16 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
+import android.widget.AdapterView;
 import android.widget.DatePicker;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.github.kevinsawicki.http.HttpRequest;
@@ -25,13 +28,14 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 import pl.torun.zsmeie.meteozsmeie.R;
 
 
-public class WykresFragment extends Fragment implements View.OnClickListener {
+public class WykresFragment extends Fragment implements View.OnClickListener, AdapterView.OnItemSelectedListener {
 
 
     private WebView mWykresWebView;
@@ -40,13 +44,14 @@ public class WykresFragment extends Fragment implements View.OnClickListener {
 
     private TextView mDateFromTextView;
     private TextView mDataToTextView;
+    private Spinner mMeasurementCountSpinner;
 
     private DatePickerDialog mFromDatePickerDialog;
-    private DatePickerDialog mToDatePickerDialog;
 
     private SimpleDateFormat mDateFormatter;
+    private SimpleDateFormat mDateFormatterMySql;
     private String mDateFrom;
-    private String mDateTo;
+    private String mMeasurementCount;
 
 
     @Override
@@ -65,31 +70,39 @@ public class WykresFragment extends Fragment implements View.OnClickListener {
         mWykresType = args.getString("wykresType");
 
         mDateFormatter = new SimpleDateFormat("dd MMMM yyyy");
+        mDateFormatterMySql = new SimpleDateFormat("yyyy-MM-dd");
 
         mWykresWebView = (WebView) rootView.findViewById(R.id.wykres_vw);
         mProgressBar = (ProgressBar) rootView.findViewById(R.id.progressBar);
         mDateFromTextView = (TextView) rootView.findViewById(R.id.date_from_et);
-        mDataToTextView = (TextView) rootView.findViewById(R.id.date_to_et);
+        mDataToTextView = (TextView) rootView.findViewById(R.id.date_from_et);
+        mMeasurementCountSpinner = (Spinner) rootView.findViewById(R.id.measurement_count_sp);
+
+        mMeasurementCountSpinner.setSelection(1);
 
         mWykresWebView.getSettings().setJavaScriptEnabled(true);
         mWykresWebView.getSettings().setDefaultTextEncodingName("utf-8");
 
         mDateFromTextView.setOnClickListener(this);
-        mDataToTextView.setOnClickListener(this);
+        mMeasurementCountSpinner.setOnItemSelectedListener(this);
+
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
+        calendar.add(Calendar.MONTH, -1);
+        mDateFrom = mDateFormatterMySql.format(calendar.getTime());
+        mDateFromTextView.setText(mDateFormatter.format(calendar.getTime()));
 
         setDateTimeField();
         //new PobierzWykres().execute();
-        new getChart().execute();
+        //new getChart().execute();
         return rootView;
     }
 
 
     private void setDateTimeField() {
-     /*   mFromDatePickerDialog.setOnClickListener(this);
-        mToDatePickerDialog.setOnClickListener(this);*/
-        final SimpleDateFormat mysqlDataFormat = new SimpleDateFormat("yyyy-MM-dd");
-
         Calendar newCalendar = Calendar.getInstance();
+        newCalendar.add(Calendar.MONTH, -1);
         mFromDatePickerDialog = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
 
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
@@ -97,20 +110,7 @@ public class WykresFragment extends Fragment implements View.OnClickListener {
                 Calendar newDate = Calendar.getInstance();
                 newDate.set(year, monthOfYear, dayOfMonth);
                 mDateFromTextView.setText(mDateFormatter.format(newDate.getTime()));
-                mDateFrom = mysqlDataFormat.format(newDate.getTime());
-                new getChart().execute();
-            }
-
-        }, newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
-
-        mToDatePickerDialog = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
-
-            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                Log.e("MyApp", "to");
-                Calendar newDate = Calendar.getInstance();
-                newDate.set(year, monthOfYear, dayOfMonth);
-                mDataToTextView.setText(mDateFormatter.format(newDate.getTime()));
-                mDateTo = mysqlDataFormat.format(newDate.getTime());
+                mDateFrom = mDateFormatterMySql.format(newDate.getTime());
                 new getChart().execute();
             }
 
@@ -123,10 +123,30 @@ public class WykresFragment extends Fragment implements View.OnClickListener {
             case R.id.date_from_et:
                 mFromDatePickerDialog.show();
                 break;
-            case R.id.date_to_et:
-                mToDatePickerDialog.show();
-                break;
         }
+
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        switch (position) {
+            case 0:
+                mMeasurementCount = "10";
+                break;
+            case 1:
+                mMeasurementCount = "30";
+                break;
+            case 2:
+                mMeasurementCount = "50";
+                break;
+            default:
+                mMeasurementCount = "30";
+        }
+        new getChart().execute();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
 
     }
 
@@ -144,12 +164,12 @@ public class WykresFragment extends Fragment implements View.OnClickListener {
             try {
 
                 //String url = "http://meteo.carokpl.usermd.net/ajax/wykresy";
-                String url = "http://78.28.15.37/Szkola//ajax/wykresy";
+                String url = "http://meteozsmeie.zz.vc/ajax/wykresy";
 
                 Map<String, String> data = new HashMap<>();
-                data.put("wykres", mWykresType);
+                data.put("chartType", mWykresType);
                 data.put("dateFrom", mDateFrom);
-                data.put("dateTo", mDateTo);
+                data.put("measurementCount", mMeasurementCount);
                 String result = HttpRequest.post(url)
                         .form(data)
                         .body();
@@ -172,7 +192,7 @@ public class WykresFragment extends Fragment implements View.OnClickListener {
 
                     JSONObject resultJson = new JSONObject(result);
 
-                    JSONArray content = resultJson.getJSONArray("content");
+                    JSONArray content = resultJson.getJSONArray("test");
 
                     if (resultJson.getBoolean("status") && content != null) {
 
@@ -180,12 +200,12 @@ public class WykresFragment extends Fragment implements View.OnClickListener {
                             JSONObject pomier = content.getJSONObject(i);
                             String data = pomier.getString("data");
                             String value = pomier.getString(mWykresType);
-                            chartData += "['" + data + "', " + value + "],";
+                            if (data != null && !TextUtils.isEmpty(data) && !TextUtils.equals(data, "null"))
+                                chartData += "['" + data + "', " + value + "],";
                         }
 
                         String html = ReadFromFile("html_template.html", getActivity());
                         if (html != null) {
-                            html = html.replace("{{site_url}}", "http://meteo.carokpl.usermd.net/");
                             html = html.replace("{{padding_left}}", "25");
                             html = html.replace("{{chart_data}}", chartData);
                             mWykresWebView.loadDataWithBaseURL(null, html, "text/html", "UTF-8", null);

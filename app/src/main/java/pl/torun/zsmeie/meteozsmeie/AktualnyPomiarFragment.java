@@ -89,7 +89,7 @@ public class AktualnyPomiarFragment extends android.support.v4.app.Fragment {
 
         @Override
         protected String doInBackground(Void... arg0) {
-            String url = "http://meteo.carokpl.usermd.net/ajax/aktualnyPomiar";
+            String url = "http://meteozsmeie.zz.vc/ajax/aktualnyPomiar";
             try {
 
                 String result = HttpRequest.get(url).body();
@@ -122,6 +122,9 @@ public class AktualnyPomiarFragment extends android.support.v4.app.Fragment {
                         mPredkoscWiatruTextView.setText(measurements.getString("predkosc_wiatru") + " Km/h");
                         mKierunekWiatruTextView.setText(measurements.getString("kierunek_wiatru"));
                         mDataTextView.setText(measurements.getString("data") + " " + measurements.getString("godzina"));
+                    }
+                    else{
+                        mErrorTextView.setVisibility(View.VISIBLE);
                     }
 
                 } catch (JSONException e) {

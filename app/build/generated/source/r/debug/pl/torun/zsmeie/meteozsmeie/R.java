@@ -18,8 +18,9 @@ public final class R {
     }
     public static final class array {
         public static final int gap_array=0x7f050000;
-        public static final int month_array=0x7f050001;
-        public static final int year_array=0x7f050002;
+        public static final int measurement_count_array=0x7f050001;
+        public static final int month_array=0x7f050002;
+        public static final int year_array=0x7f050003;
     }
     public static final class attr {
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
@@ -1489,7 +1490,6 @@ containing a value of this type.
         public static final int data=0x7f09005c;
         public static final int data_tv=0x7f090053;
         public static final int date_from_et=0x7f090062;
-        public static final int date_to_et=0x7f090063;
         public static final int day_et=0x7f090047;
         public static final int decor_content_parent=0x7f090033;
         public static final int default_activity_button=0x7f090028;
@@ -1513,6 +1513,7 @@ containing a value of this type.
         public static final int kierunekWiatru_tv=0x7f090051;
         public static final int listMode=0x7f090009;
         public static final int list_item=0x7f090029;
+        public static final int measurement_count_sp=0x7f090063;
         public static final int middle=0x7f090015;
         public static final int minute_et=0x7f09004c;
         public static final int month_sp=0x7f090048;

@@ -146,7 +146,7 @@ public class PomiaryFragment extends android.support.v4.app.Fragment {
         @Override
         protected String doInBackground(Void... v) {
 
-            String url = "http://meteo.carokpl.usermd.net/ajax/pomiary";
+            String url = "http://meteozsmeie.zz.vc/ajax/pomiary";
             try {
 
                 Map<String, String> postData = new HashMap<>();
